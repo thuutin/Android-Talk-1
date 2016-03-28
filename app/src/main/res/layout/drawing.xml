@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <CheckBox
+      android:text="Intercept Touch Events"
+      android:id="@+id/interceptTouchEvent"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      />
+
+  <LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
+
+    <siclocom.tin.androidtalk1.drawing.InterceptScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0px"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        >
+
+      <LinearLayout
+          android:orientation="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="800dp"
+            />
+
+        <siclocom.tin.androidtalk1.drawing.DrawingView
+            android:id="@+id/drawing"
+            android:layout_gravity="center_vertical"
+            android:background="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="800dp"
+            />
+
+      </LinearLayout>
+
+    </siclocom.tin.androidtalk1.drawing.InterceptScrollView>
+
+    <siclocom.tin.androidtalk1.drawing.DrawingView
+        android:layout_gravity="center_vertical"
+        android:background="@color/colorAccent"
+        android:layout_width="0px"
+        android:layout_weight="1"
+        android:layout_height="400dp"
+        />
+
+  </LinearLayout>
+
+
+</LinearLayout>

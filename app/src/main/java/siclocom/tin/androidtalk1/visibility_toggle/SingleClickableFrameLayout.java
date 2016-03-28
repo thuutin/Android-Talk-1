@@ -13,6 +13,7 @@ import siclocom.tin.androidtalk1.R;
 public class SingleClickableFrameLayout extends FrameLayout {
 
   View mTargetView;
+  private boolean willRouteDispatch;
 
   public SingleClickableFrameLayout(Context context) {
     super(context);
@@ -26,9 +27,16 @@ public class SingleClickableFrameLayout extends FrameLayout {
     super(context, attrs, defStyleAttr);
   }
 
+  public void setWillRouteDispatch(boolean willRouteDispatch){
+    this.willRouteDispatch = willRouteDispatch;
+  }
+
   @Override public boolean dispatchTouchEvent(MotionEvent ev) {
-    if (mTargetView ==null){
+    if (mTargetView == null) {
       mTargetView = findViewById(R.id.controller);
+    }
+    if (willRouteDispatch) {
+      return super.dispatchTouchEvent(ev);
     }
     return mTargetView.dispatchTouchEvent(ev) || super.dispatchTouchEvent(ev);
   }

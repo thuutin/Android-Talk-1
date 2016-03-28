@@ -1,8 +1,9 @@
-package siclocom.tin.androidtalk1;
+package siclocom.tin.androidtalk1.intercept;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import siclocom.tin.androidtalk1.R;
 
 /**
  * Created by tin on 3/16/16.

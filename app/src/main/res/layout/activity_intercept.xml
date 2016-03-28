@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<siclocom.tin.androidtalk1.InterceptFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0px"
+        >
 
-    <Button
+        <Button
         android:layout_height="128dp"
         android:layout_width="300dp"
         android:layout_gravity="center"
-        android:id="@+id/button"
+            android:background="@drawable/selectable_item_background"
         >
-    </Button>
+        </Button>
 
-</siclocom.tin.androidtalk1.InterceptFrameLayout>
+    </FrameLayout>
+
+    <siclocom.tin.androidtalk1.intercept.InterceptFrameLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0px"
+        >
+
+        <Button
+            android:layout_height="128dp"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:id="@+id/button"
+            android:background="@drawable/selectable_item_background"
+
+            >
+        </Button>
+
+    </siclocom.tin.androidtalk1.intercept.InterceptFrameLayout>
+
+</LinearLayout>

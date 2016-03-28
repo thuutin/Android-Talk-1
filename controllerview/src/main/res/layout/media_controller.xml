@@ -14,19 +14,13 @@
         android:minHeight="42dp"
         android:padding="9dp">
 
-        <ImageButton
-            android:id="@+id/top_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:src="@drawable/video_top_back" />
 
         <TextView
             android:id="@+id/top_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="直播直播"
+            android:text="Hello"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold" />

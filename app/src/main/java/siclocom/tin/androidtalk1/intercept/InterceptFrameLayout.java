@@ -1,4 +1,4 @@
-package siclocom.tin.androidtalk1;
+package siclocom.tin.androidtalk1.intercept;
 
 import android.content.Context;
 import android.support.v4.view.MotionEventCompat;

@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<siclocom.tin.androidtalk1.visibility_toggle.SingleClickableFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-  <SurfaceView
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical" >
+
+  <CheckBox
+      android:id="@+id/checkbox1"
+      android:text="Route To Controller"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
       />
-  <com.bruce.videocontrollerview.VideoControllerView
-      android:id="@+id/controller"
+
+  <siclocom.tin.androidtalk1.visibility_toggle.SingleClickableFrameLayout
+      android:id="@+id/single_clickable_framelayout"
       android:layout_width="match_parent"
-      android:layout_height="match_parent" />
+      android:layout_height="match_parent">
+    <SurfaceView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+    <com.bruce.videocontrollerview.VideoControllerView
+        android:id="@+id/controller"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-
-</siclocom.tin.androidtalk1.visibility_toggle.SingleClickableFrameLayout>
+  </siclocom.tin.androidtalk1.visibility_toggle.SingleClickableFrameLayout>
+</LinearLayout>
