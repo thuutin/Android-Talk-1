@@ -14,4 +14,5 @@ public class VisibilityToggleActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.visibility_toggle);
   }
+
 }

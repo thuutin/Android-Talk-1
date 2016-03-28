@@ -23,7 +23,6 @@ public class VideoControllerView extends FrameLayout {
 
     private static final int HANDLER_ANIMATE_OUT = 1;// out animate
     private static final int HANDLER_UPDATE_PROGRESS = 2;//cycle update progress
-    private View mRootView; // root view of this
     private boolean mShowing;//controller view showing?
 
     private GestureDetector mGestureDetector;
@@ -75,10 +74,9 @@ public class VideoControllerView extends FrameLayout {
      * init controller view
      * @return
      */
-    protected View makeControllerView() {
+    protected void makeControllerView() {
         LayoutInflater inflate = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mRootView = inflate.inflate(R.layout.media_controller, this, true);
-        return mRootView;
+        inflate.inflate(R.layout.media_controller, this, true);
     }
 
     /**

@@ -12,7 +12,7 @@ import android.view.WindowManager;
  * On 2015/10/21
  * At 9:58
  */
-public class ViewGestureListener implements GestureDetector.OnGestureListener {
+public class ViewGestureListener extends GestureDetector.SimpleOnGestureListener {
 
     private static final String TAG = "ViewGestureListener";
 
@@ -24,32 +24,5 @@ public class ViewGestureListener implements GestureDetector.OnGestureListener {
     public boolean onSingleTapUp(MotionEvent e) {
         return true;
     }
-
-    @Override
-    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-        return false;
-    }
-
-    @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        return false;
-    }
-
-
-    @Override
-    public void onLongPress(MotionEvent e) {
-
-    }
-
-    @Override
-    public boolean onDown(MotionEvent e) {
-        return false;
-    }
-
-    @Override
-    public void onShowPress(MotionEvent e) {
-
-    }
-
 
 }
