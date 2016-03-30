@@ -35,7 +35,7 @@ public class SingleClickableFrameLayout extends FrameLayout {
     if (mTargetView == null) {
       mTargetView = findViewById(R.id.controller);
     }
-    if (willRouteDispatch) {
+    if (!willRouteDispatch) {
       return super.dispatchTouchEvent(ev);
     }
     return mTargetView.dispatchTouchEvent(ev) || super.dispatchTouchEvent(ev);

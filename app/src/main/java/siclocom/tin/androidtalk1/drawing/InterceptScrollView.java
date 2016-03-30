@@ -49,7 +49,7 @@ public class InterceptScrollView extends ScrollView {
       final float top = mTargetView.getTop() - density * 800;
       final float bottom = mTargetView.getHeight() + top;
       Log.d("Hello", "RawY: " + y + "   Top: " + top + "   Bottom: " + bottom);
-      if (top< y && y < bottom){
+      if (top < y && y < bottom){
         return false;
       }
     }
