@@ -6,9 +6,11 @@ package com.bruce.videocontrollerview;
  * At 16:33
  */
 
+import android.animation.Animator;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -21,12 +23,7 @@ public class VideoControllerView extends FrameLayout {
 
     private static final String TAG = "VideoControllerView";
 
-    private static final int HANDLER_ANIMATE_OUT = 1;// out animate
-    private static final int HANDLER_UPDATE_PROGRESS = 2;//cycle update progress
     private boolean mShowing;//controller view showing?
-
-    private GestureDetector mGestureDetector;
-    private Handler mHandler = new ControllerViewHandler(this);
 
     public VideoControllerView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -39,37 +36,7 @@ public class VideoControllerView extends FrameLayout {
     @Override protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         makeControllerView();
-        mGestureDetector = new GestureDetector(getContext(),
-            new ViewGestureListener());
     }
-
-    /**
-     * Handler prevent leak memory.
-     */
-    private static class ControllerViewHandler extends Handler {
-        private final WeakReference<VideoControllerView> mView;
-
-        ControllerViewHandler(VideoControllerView view) {
-            mView = new WeakReference<VideoControllerView>(view);
-        }
-
-        @Override
-        public void handleMessage(Message msg) {
-            VideoControllerView view = mView.get();
-            if (view == null) {
-                return;
-            }
-
-            int pos;
-            switch (msg.what) {
-                case HANDLER_ANIMATE_OUT:
-                    view.hide();
-                    break;
-
-            }
-        }
-    }
-
     /**
      * init controller view
      * @return
@@ -88,7 +55,6 @@ public class VideoControllerView extends FrameLayout {
             mShowing = true;//set view state
         }
         //update progress
-        mHandler.sendEmptyMessage(HANDLER_UPDATE_PROGRESS);
     }
 
     /**
@@ -98,13 +64,9 @@ public class VideoControllerView extends FrameLayout {
         if(!isShowing()){
             show();
         }else {
-            //animate out controller view
-            Message msg = mHandler.obtainMessage(HANDLER_ANIMATE_OUT);
-            mHandler.removeMessages(HANDLER_ANIMATE_OUT);
-            mHandler.sendMessageDelayed(msg, 100);
+            hide();
         }
     }
-
 
     public boolean isShowing() {
         return mShowing;
@@ -117,22 +79,40 @@ public class VideoControllerView extends FrameLayout {
        equals android:animateLayoutChanges="true"
      */
     private void hide() {
-        if (!isShowing()) {
-            return;
-        }
-        setVisibility(INVISIBLE);
+        animate().alpha(0).setDuration(300).setListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                setVisibility(INVISIBLE);
+                setAlpha(1);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
         mShowing = false;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-
-        if (mGestureDetector.onTouchEvent(event)){
-           toggleControllerView();
-           return true;
+        final int masked = MotionEventCompat.getActionMasked(event);
+        if (masked == MotionEvent.ACTION_DOWN){
+            toggleControllerView();
+            return true;
         }
+        return false;
 
-        return super.onTouchEvent(event);
     }
 
 }

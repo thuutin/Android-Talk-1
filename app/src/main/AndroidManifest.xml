@@ -16,6 +16,8 @@
         </activity>
         <activity android:name=".drawing.DrawingActivity" />
         <activity android:name=".intercept.MoveInterceptActivity" />
+        <activity android:name=".log.LoggingActivity" />
+
         <activity android:name=".visibility_toggle.VisibilityToggleActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             >

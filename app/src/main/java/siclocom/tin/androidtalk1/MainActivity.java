@@ -16,6 +16,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import siclocom.tin.androidtalk1.drawing.DrawingActivity;
 import siclocom.tin.androidtalk1.intercept.MoveInterceptActivity;
+import siclocom.tin.androidtalk1.log.LoggingActivity;
 import siclocom.tin.androidtalk1.visibility_toggle.VisibilityToggleActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,11 +27,15 @@ public class MainActivity extends AppCompatActivity {
     ButterKnife.bind(this);
   }
 
-  @OnClick({ R.id.move_intercept, R.id.visibility_toggle, R.id.drawing })
+  @OnClick({ R.id.move_intercept, R.id.visibility_toggle, R.id.drawing, R.id.logging })
   public void onClick(View v) {
     switch (v.getId()) {
       case R.id.move_intercept:
         startActivity(new Intent(this, MoveInterceptActivity.class));
+        break;
+
+      case R.id.logging:
+        startActivity(new Intent(this, LoggingActivity.class));
         break;
 
       case R.id.visibility_toggle:

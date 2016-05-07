@@ -14,11 +14,17 @@
   tools:context="siclocom.tin.androidtalk1.MainActivity">
 
   <Button
-      android:id="@+id/move_intercept"
-      android:text="Move Intercept"
+      android:id="@+id/logging"
+      android:text="Logging"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       />
+  <Button
+    android:id="@+id/move_intercept"
+    android:text="Move Intercept"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    />
 
   <Button
       android:id="@+id/visibility_toggle"
